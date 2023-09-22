@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sticky Header</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      .header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100; /* Ensure header is above other elements */
+        transition: transform 0.3s; /* smooth transition for the header animation */
+      }
+
+      main .content {
+        padding: 80px 20px; /* 80px to avoid the content hiding behind the header. Adjust as necessary. */
+      }
+
+      .content p {
+        min-height: 130vh;
+        margin-bottom: 5rem;
+      }
+
+      /* This class will hide the header on scroll down */
+      .header-up {
+        transform: translateY(-100%);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">This is a sticky header</header>
+    <main>
+      <div class="content">
+        <!-- Your content here -->
+        Lorem ipsum ... [add multiple paragraphs or dummy content to test
+        scrolling]
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+          accusamus nemo m earum. Atque quas ratione provident voluptas nemo
+          sint illum dolore nisi fugit sequi. Excepturi sit ducimus magnam nobis
+          mollitia laborum amet obcaecati consequatur, provident officia iste!
+          Sed, quo ipsam beatae eveniet impedit neque amet alias deserunt modi
+          suscipit, ab atque laboriosam pariatur aperiam illo magnam aliquid?
+          Minima debitis nemo nulla labore consectetur laborum nesciunt
+          recusandae dolorem omnis ratione placeat incidunt, quidem illum!
+          Vitae, itaque distinctio quidem fuga cum repudiandae accusantium in,
+          nesciunt minima ab dignissimos deserunt laudantium molestias inventore
+          possimus qui molestiae eius illo nihil laborum! Eius doloribus
+          praesentium eveniet sapiente ipsum erro?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+          eius libero iste blanditiis natus sint excepturi officia, aut sequi
+          porro, repellendus ducimus quis, nostrum quasi vero similique! Itaque
+          provident fugiat consequuntur vero aliquam molestiae earum non natus
+          saepe commodi ipsam aperiam voluptas tempora doloribus, veritatis a
+          voluptatum repellendus voluptate? Necessitatibus in, dolorem ducimus
+          nemo repudiandae similique illum accusamus voluptates laboriosam
+          libero delectus numquam vel labore veniam iste commodi neque
+          perspiciatis a iure totam quaerat quibusdam explicabo rem? Dolor minus
+          suscipit voluptatem laudantium omnis iusto obcaecati vero labore
+          inventore odio quibusdam veniam nemo, quidem nesciunt error quod quas,
+          tenetur illum exercitationem repudiandae. Reiciendis quisquam culpa
+          perspiciatis provident cum ducimus accusamus corrupti debitis
+          voluptatum non consequuntur repellat consectetur veritatis laboriosam
+          saepe earum, deleniti minus! Beatae excepturi delectus similique,
+          voluptatem tempora ab amet eligendi eveniet optio. Ab eaque in libero
+          quaerat ratione esse molestias eos officia repudiandae, perspiciatis
+          laboriosam velit illo expedita a reiciendis minus voluptatem soluta,
+          tempora nesciunt magni. Quisquam, neque libero vel tempora, corporis
+          illum explicabo doloremque laboriosam quae esse, aut laborum corrupti
+          dolorum nemo modi blanditiis sint in tempore eius autem ad. Dicta
+          harum recusandae, pariatur vitae saepe, sunt numquam autem repudiandae
+          quia nihil amet optio quis aliquid, eum est?
+        </p>
+      </div>
+    </main>
+    <script>
+      let lastScrollTop = 0;
+      const header = document.querySelector(".header");
+
+      window.addEventListener(
+        "scroll",
+        function () {
+          let currentScrollPos = window.scrollY;
+          if (currentScrollPos <= 0) {
+            // If at the top of the viewport
+            header.style.transform = "translateY(0)";
+          } else if (currentScrollPos > lastScrollTop) {
+            // Scrolling down
+            header.style.transform = "translateY(-100%)";
+          } else {
+            // Scrolling up
+            header.style.transform = "translateY(0)";
+          }
+          lastScrollTop = currentScrollPos;
+        },
+        false
+      );
+    </script>
+  </body>
+</html>
