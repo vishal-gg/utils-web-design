@@ -109,3 +109,40 @@
     </script>
   </body>
 </html>
+
+<!-- for react -->
+
+<!-- import React, { useState, useEffect } from 'react';
+
+const Header = () => {
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+      setVisible(currentScrollPos <= prevScrollPos);
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [prevScrollPos]);
+
+  const style = {
+    transform: visible ? 'translateY(0)' : 'translateY(-100%)',
+    transition: 'transform 0.3s',
+  };
+
+  return (
+    <header style={style}>
+      Your header content goes here
+    </header>
+  );
+};
+
+export default Header; -->
+
